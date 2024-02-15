@@ -1,4 +1,4 @@
-# Gut brain interaction research through microbiome studies
+# Gut-brain investigations using microbiome research
 This respository contains scripts used in the analysis of gut microbiomes related to different neurological disease states.
 
 Illumina V1-V3 16S sequencing data analysis performed using [nf-core ampliseq](https://github.com/nf-core/ampliseq).
