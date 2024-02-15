@@ -5,7 +5,7 @@ Illumina V1-V3 16S sequencing data analysis performed using [nf-core ampliseq](h
 
 ONT Nanopore full-length 16S sequencing performed in house with data analysis by custom pipeline using [dorado](https://github.com/nanoporetech/dorado), [chopper](https://github.com/wdecoster/chopper), and [emu](https://gitlab.com/treangenlab/emu).
 
-Data vizualization was performed in R and Graphpad Prism 9.
+Data vizualization was performed in R using [phyloseq](https://github.com/joey711/phyloseq) and [microViz](https://github.com/david-barnett/microViz), with final touches in Graphpad Prism 9.
 
 Differential abundance analyses performed using [ANCOMBC2](https://github.com/FrederickHuangLin/ANCOMBC).
 
