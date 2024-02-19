@@ -205,6 +205,57 @@ p <- pathway_errorbar(abundance = pan_cci,
 
 p
 
+##############################################################################
+################_____Trying__with__MetaCyc__pathways_____#####################
+
+metacyc = read.delim("METACYC_path_abun_unstrat_descrip.tsv")
+
+pan_cci_meta = meta %>%
+  filter(Treatment == "PAN" & Injury == "CCI")
+
+df = metacyc[,-2]
+
+pan_cci = df %>%
+  select("pathway","Villapol_234_B", "Villapol_236_B", "Villapol_237_B", "Villapol_238_B", "Villapol_239_B",  
+         "Villapol_240_B", "Villapol_241_B", "Villapol_242_B", "Villapol_243_B", "Villapol_244_B",  
+         "Villapol_245_B", "Villapol_246_B", "Villapol_247_B", "Villapol_248_B", "Villapol_249_B", 
+         "Villapol_250_B", "Villapol_251_B", "Villapol_252_B", "Villapol_253_B", "Villapol_35d_234",
+         "Villapol_35d_236", "Villapol_35d_237", "Villapol_35d_238", "Villapol_35d_239", "Villapol_35d_240",
+         "Villapol_35d_241", "Villapol_35d_242", "Villapol_35d_243", "Villapol_35d_244", "Villapol_35d_245",
+         "Villapol_35d_246", "Villapol_35d_247", "Villapol_35d_248", "Villapol_35d_249", "Villapol_35d_250",
+         "Villapol_35d_251", "Villapol_35d_252", "Villapol_35d_253") %>%
+  column_to_rownames(var = "pathway")
+         
+daa_results_df <- pathway_daa(pan_cci, 
+                              metadata = pan_cci_meta, 
+                              group = "Timepoint", 
+                              daa_method = "LinDA")
+
+daa_results_df1 = daa_results_df %>% 
+  filter(p_values < 0.02) 
+
+daa_annotated_results_df <- pathway_annotation(pathway = "MetaCyc",
+                                               daa_results_df = daa_results_df1,
+                                               ko_to_kegg = FALSE)
+
+# Please change Group to metadata$your_group_column if you are not using example dataset
+p <- pathway_errorbar(abundance = pan_cci,
+                      daa_results_df = daa_annotated_results_df ,
+                      Group = pan_cci_meta$Timepoint,
+                      ko_to_kegg = FALSE,
+                      p_values_threshold = 0.05,
+                      order = "group",
+                      select = NULL,
+                      p_value_bar = TRUE,
+                      colors = NULL,
+                      x_lab = "description")
+
+p
+
+
+
+
+
 # If that dont work
 daa_results_df1 <- daa_results_df %>% filter(p_adjust < 0.05) %>% slice(1:29)
 
