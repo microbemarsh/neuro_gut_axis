@@ -4,7 +4,7 @@ This respository contains scripts used in the analysis of gut microbiomes relate
 
 Illumina V1-V3 16S sequencing data analysis performed using [nf-core ampliseq](https://github.com/nf-core/ampliseq).
 
-The parameters used in the analysis can be found in the [ampliseq.sh](https://github.com/microbemarsh/pan_probiotics_TBI/ampliseq.sh)
+The parameters used in the analysis can be found in the [ampliseq.sh](https://github.com/microbemarsh/neuro_gut_axis/blob/main/ampliseq.sh)
 
 Most of the data vizualization was performed in R using [phyloseq](https://github.com/joey711/phyloseq) and [microViz](https://github.com/david-barnett/microViz).
 
