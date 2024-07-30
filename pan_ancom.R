@@ -24,7 +24,7 @@ pop_taxa = function(physeq, badTaxa){
   return(prune_taxa(allTaxa, physeq))
 }
 
-# ASVs that are no bueno
+# ASVs that are no bueno, definitely a better way to do but this is what ANCOMBC2 recommends
 badTaxa = c("3ada00c2495bf99d9e0b37663a7ebb41", "93ca769ae201bb1896db00a095254f31", "18bd5640bde80098cbe9a16f97e3b5f7", 
             "452afb6e36f623626dbf48eb303f997b", "9a50c310c570fa39a4245715c680fbfa", "1d7834c6774e38d56ed36b94d6a1b8e6", 
             "70b75647201517cd92b0c9a47eef2531", "ef77162ed5af70274d0a9fe4a4b95ef7", "0dc730c264aa9465ad446195387bea6e", 
